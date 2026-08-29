@@ -1,38 +1,53 @@
 const IMG='https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/';
 const W=[
 ['A','Petto + Tricipiti + Core','purple',[
-['Distensioni manubri su panca piana','Panca + manubri','4 × 8–12','60–75 s','https://musclewiki.com/exercise/dumbbell-bench-press','Dumbbell_Bench_Press'],
-['Distensioni inclinate manubri','Panca inclinata + manubri','3 × 10–12','60–75 s','https://musclewiki.com/exercise/dumbbell-incline-bench-press','Incline_Dumbbell_Press'],
-['Croci su panca inclinata','Panca inclinata + manubri','3 × 12–15','60 s','https://musclewiki.com/exercise/dumbbell-incline-chest-flys','Incline_Dumbbell_Flyes'],
-['Push-up','Corpo libero','3 × 10–15','45 s','https://www.youtube.com/results?search_query=push+up+proper+form+tutorial','Pushups'],
-['Pushdown tricipiti ai cavi','Cavo alto + corda','3 × 10–12','45 s','https://www.youtube.com/results?search_query=rope+triceps+pushdown+proper+form+tutorial','Triceps_Pushdown_-_Rope_Attachment'],
-['French press con manubrio','Panca + manubrio','3 × 10–12','45 s','https://www.youtube.com/results?search_query=dumbbell+lying+triceps+extension+proper+form+tutorial','Lying_Dumbbell_Tricep_Extension'],
-['Plank','Corpo libero','3 × 40–60 s','45 s','https://www.youtube.com/results?search_query=forearm+plank+proper+form+E3+Rehab','Plank','single'],
-['Cable crunch','Cavo alto + corda','3 × 12–15','45 s','https://www.youtube.com/results?search_query=cable+crunch+proper+form+tutorial','Cable_Crunch'],
-['Reverse crunch','Tappetino','3 × 12–15','45 s','https://www.youtube.com/results?search_query=reverse+crunch+proper+form+tutorial','Reverse_Crunch']]],
-['B','Schiena + Bicipiti + Gambe','blue',[
-['Lat machine presa larga','Lat machine','4 × 8–12','60–75 s','https://www.youtube.com/results?search_query=lat+pulldown+wide+grip+proper+form+tutorial','Wide-Grip_Lat_Pulldown'],
-['Rematore manubrio su panca','Panca + manubrio','3 × 10–12 / lato','60 s','https://www.youtube.com/results?search_query=one+arm+dumbbell+row+proper+form+tutorial','One-Arm_Dumbbell_Row'],
-['Seated row al pulley','Pulley basso','3 × 10–12','60–75 s','https://www.youtube.com/results?search_query=seated+cable+row+proper+form+tutorial','Seated_Cable_Rows'],
-['Goblet squat','Kettlebell o manubrio','3 × 12–15','60–75 s','https://musclewiki.com/exercise/dumbbell-goblet-squat','Goblet_Squat'],
-['Romanian deadlift manubri','Manubri','3 × 10–12','75 s','https://www.youtube.com/results?search_query=dumbbell+Romanian+deadlift+proper+form+tutorial','Stiff-Legged_Dumbbell_Deadlift'],
-['Affondi indietro','Manubri','3 × 10–12 / gamba','60 s','https://musclewiki.com/exercise/dumbbell-reverse-lunge','Dumbbell_Rear_Lunge'],
-['Curl manubri alternati','Manubri','3 × 10–12','45 s','https://www.youtube.com/results?search_query=alternating+dumbbell+curl+proper+form+tutorial','Dumbbell_Alternate_Bicep_Curl'],
-['Hammer curl','Manubri','3 × 10–12','45 s','https://www.youtube.com/results?search_query=hammer+curl+proper+form+tutorial','Alternate_Hammer_Curl'],
-['Side plank','Corpo libero','3 × 30–45 s / lato','30 s','https://www.youtube.com/results?search_query=side+plank+proper+form+E3+Rehab','Side_Bridge','single']]],
+['Croci ai cavi','Cavi','3 × 12–15','45–60 s','https://www.youtube.com/results?search_query=cable+chest+fly+proper+form+tutorial','Cable_Crossover',null,'ATTREZZI / CAVI'],
+['Pushdown tricipiti con corda','Cavo alto + corda','3 × 10–12','45 s','https://www.youtube.com/results?search_query=rope+triceps+pushdown+proper+form+tutorial','Triceps_Pushdown_-_Rope_Attachment',null,'ATTREZZI / CAVI'],
+['Cable crunch','Cavo alto + corda','3 × 12–15','45 s','https://www.youtube.com/results?search_query=cable+crunch+proper+form+tutorial','Cable_Crunch',null,'ATTREZZI / CAVI'],
+['Distensioni manubri su panca piana','Panca + manubri','4 × 8–12','60–75 s','https://musclewiki.com/exercise/dumbbell-bench-press','Dumbbell_Bench_Press',null,'PESI LIBERI'],
+['Distensioni inclinate manubri','Panca inclinata + manubri','3 × 10–12','60–75 s','https://musclewiki.com/exercise/dumbbell-incline-bench-press','Incline_Dumbbell_Press',null,'PESI LIBERI'],
+['French press con manubrio','Panca + manubrio','3 × 10–12','45 s','https://www.youtube.com/results?search_query=dumbbell+lying+triceps+extension+proper+form+tutorial','Lying_Dumbbell_Tricep_Extension',null,'PESI LIBERI'],
+['Plank','Corpo libero','3 × 40–60 s','45 s','https://www.youtube.com/results?search_query=forearm+plank+proper+form+E3+Rehab','Plank','single','CORE'],
+['Reverse crunch','Tappetino','3 × 12–15','45 s','https://www.youtube.com/results?search_query=reverse+crunch+proper+form+tutorial','Reverse_Crunch',null,'CORE']]],
+['B','Schiena + Bicipiti + Core','blue',[
+['Lat machine presa larga','Lat machine','4 × 8–12','60–75 s','https://www.youtube.com/results?search_query=lat+pulldown+wide+grip+proper+form+tutorial','Wide-Grip_Lat_Pulldown',null,'ATTREZZI / CAVI'],
+['Seated row al pulley','Pulley basso','3 × 10–12','60–75 s','https://www.youtube.com/results?search_query=seated+cable+row+proper+form+tutorial','Seated_Cable_Rows',null,'ATTREZZI / CAVI'],
+['Curl bilaterale al cavo','Cavo basso','3 × 10–12','45 s','https://www.youtube.com/results?search_query=standing+cable+biceps+curl+proper+form+tutorial','Standing_Biceps_Cable_Curl',null,'ATTREZZI / CAVI'],
+['Rematore manubrio su panca','Panca + manubrio','3 × 10–12 / lato','60 s','https://www.youtube.com/results?search_query=one+arm+dumbbell+row+proper+form+tutorial','One-Arm_Dumbbell_Row',null,'PESI LIBERI'],
+['Curl manubri alternati','Manubri','3 × 10–12','45 s','https://www.youtube.com/results?search_query=alternating+dumbbell+curl+proper+form+tutorial','Dumbbell_Alternate_Bicep_Curl',null,'PESI LIBERI'],
+['Hammer curl','Manubri','3 × 10–12','45 s','https://www.youtube.com/results?search_query=hammer+curl+proper+form+tutorial','Alternate_Hammer_Curl',null,'PESI LIBERI'],
+['Side plank','Corpo libero','3 × 30–45 s / lato','30 s','https://www.youtube.com/results?search_query=side+plank+proper+form+E3+Rehab','Side_Bridge','single','CORE'],
+['Dead bug','Tappetino','3 × 10 / lato','30 s','https://www.youtube.com/results?search_query=dead+bug+proper+form+E3+Rehab','Dead_Bug',null,'CORE']]],
 ['C','Spalle + Braccia + Core','green',[
-['Shoulder press manubri','Manubri','4 × 8–12','60–75 s','https://www.youtube.com/results?search_query=standing+dumbbell+shoulder+press+proper+form+tutorial','Standing_Dumbbell_Press'],
-['Alzate laterali','Manubri','3 × 12–15','45 s','https://www.youtube.com/results?search_query=dumbbell+lateral+raise+proper+form+tutorial','Side_Lateral_Raise'],
-['Curl bilaterale al cavo','Cavo basso','3 × 10–12','45 s','https://www.youtube.com/results?search_query=standing+cable+biceps+curl+proper+form+tutorial','Standing_Biceps_Cable_Curl'],
-['Overhead triceps extension con corda','Cavo basso + corda','3 × 10–12','45 s','https://www.youtube.com/results?search_query=overhead+rope+triceps+extension+proper+form+tutorial','Cable_Rope_Overhead_Triceps_Extension'],
-['Dip su panca','Panca','3 × 10–15','45 s','https://www.youtube.com/results?search_query=bench+dips+proper+form+tutorial','Bench_Dips'],
-['Step up su panca','Panca; manubri opzionali','3 × 10–12 / gamba','60 s','https://www.youtube.com/results?search_query=dumbbell+step+up+proper+form+tutorial','Step-up_with_Knee_Raise'],
-['Dead bug','Tappetino','3 × 10 / lato','30 s','https://www.youtube.com/results?search_query=dead+bug+proper+form+E3+Rehab','Dead_Bug'],
-['Air Bike / Bicycle crunch','Tappetino','3 × 16–20 totali','30 s','https://www.youtube.com/results?search_query=bicycle+crunch+proper+form+tutorial','Air_Bike'],
-['Russian twist','Tappetino','3 × 16–20','30 s','https://www.youtube.com/results?search_query=russian+twist+proper+form+tutorial','Russian_Twist']]]
+['Shoulder press guidata','Macchina shoulder press','4 × 8–12','60–75 s','https://www.youtube.com/results?search_query=machine+shoulder+press+proper+form+tutorial','Leverage_Shoulder_Press',null,'ATTREZZI / CAVI'],
+['Curl bilaterale al cavo','Cavo basso','3 × 10–12','45 s','https://www.youtube.com/results?search_query=standing+cable+biceps+curl+proper+form+tutorial','Standing_Biceps_Cable_Curl',null,'ATTREZZI / CAVI'],
+['Overhead triceps extension con corda','Cavo + corda','3 × 10–12','45 s','https://www.youtube.com/results?search_query=overhead+rope+triceps+extension+proper+form+tutorial','Cable_Rope_Overhead_Triceps_Extension',null,'ATTREZZI / CAVI'],
+['Shoulder press manubri','Panca + manubri','3 × 8–12','60 s','https://www.youtube.com/results?search_query=seated+dumbbell+shoulder+press+proper+form+tutorial','Standing_Dumbbell_Press',null,'PESI LIBERI'],
+['Alzate laterali','Manubri','3 × 12–15','45 s','https://www.youtube.com/results?search_query=dumbbell+lateral+raise+proper+form+tutorial','Side_Lateral_Raise',null,'PESI LIBERI'],
+['Dip su panca','Panca','3 × 10–15','45 s','https://www.youtube.com/results?search_query=bench+dips+proper+form+tutorial','Bench_Dips',null,'PESI LIBERI'],
+['Russian twist','Tappetino','3 × 16–20','30 s','https://www.youtube.com/results?search_query=russian+twist+proper+form+tutorial','Russian_Twist',null,'CORE'],
+['Plank','Corpo libero','3 × 40–60 s','45 s','https://www.youtube.com/results?search_query=forearm+plank+proper+form+E3+Rehab','Plank','single','CORE']]],
+['D','Petto + Schiena + Core','orange',[
+['Croci ai cavi','Cavi','3 × 12–15','45–60 s','https://www.youtube.com/results?search_query=cable+chest+fly+proper+form+tutorial','Cable_Crossover',null,'ATTREZZI / CAVI'],
+['Lat machine presa larga','Lat machine','3 × 10–12','60 s','https://www.youtube.com/results?search_query=lat+pulldown+wide+grip+proper+form+tutorial','Wide-Grip_Lat_Pulldown',null,'ATTREZZI / CAVI'],
+['Seated row al pulley','Pulley basso','3 × 10–12','60 s','https://www.youtube.com/results?search_query=seated+cable+row+proper+form+tutorial','Seated_Cable_Rows',null,'ATTREZZI / CAVI'],
+['Cable crunch','Cavo alto + corda','3 × 12–15','45 s','https://www.youtube.com/results?search_query=cable+crunch+proper+form+tutorial','Cable_Crunch',null,'ATTREZZI / CAVI'],
+['Distensioni inclinate manubri','Panca inclinata + manubri','3 × 10–12','60 s','https://musclewiki.com/exercise/dumbbell-incline-bench-press','Incline_Dumbbell_Press',null,'PESI LIBERI'],
+['Croci su panca inclinata','Panca inclinata + manubri','3 × 12–15','60 s','https://musclewiki.com/exercise/dumbbell-incline-chest-flys','Incline_Dumbbell_Flyes',null,'PESI LIBERI'],
+['Side plank','Corpo libero','3 × 30–45 s / lato','30 s','https://www.youtube.com/results?search_query=side+plank+proper+form+E3+Rehab','Side_Bridge','single','CORE'],
+['Reverse crunch','Tappetino','3 × 12–15','45 s','https://www.youtube.com/results?search_query=reverse+crunch+proper+form+tutorial','Reverse_Crunch',null,'CORE']]],
+['E','Braccia + Richiamo schiena + Core','red',[
+['Curl bilaterale al cavo','Cavo basso','3 × 10–12','45 s','https://www.youtube.com/results?search_query=standing+cable+biceps+curl+proper+form+tutorial','Standing_Biceps_Cable_Curl',null,'ATTREZZI / CAVI'],
+['Pushdown tricipiti con corda','Cavo alto + corda','3 × 10–12','45 s','https://www.youtube.com/results?search_query=rope+triceps+pushdown+proper+form+tutorial','Triceps_Pushdown_-_Rope_Attachment',null,'ATTREZZI / CAVI'],
+['Overhead triceps extension con corda','Cavo + corda','3 × 10–12','45 s','https://www.youtube.com/results?search_query=overhead+rope+triceps+extension+proper+form+tutorial','Cable_Rope_Overhead_Triceps_Extension',null,'ATTREZZI / CAVI'],
+['Rematore manubrio su panca','Panca + manubrio','3 × 10–12 / lato','60 s','https://www.youtube.com/results?search_query=one+arm+dumbbell+row+proper+form+tutorial','One-Arm_Dumbbell_Row',null,'PESI LIBERI'],
+['Curl manubri alternati','Manubri','3 × 10–12','45 s','https://www.youtube.com/results?search_query=alternating+dumbbell+curl+proper+form+tutorial','Dumbbell_Alternate_Bicep_Curl',null,'PESI LIBERI'],
+['Hammer curl','Manubri','3 × 10–12','45 s','https://www.youtube.com/results?search_query=hammer+curl+proper+form+tutorial','Alternate_Hammer_Curl',null,'PESI LIBERI'],
+['Dead bug','Tappetino','3 × 10 / lato','30 s','https://www.youtube.com/results?search_query=dead+bug+proper+form+E3+Rehab','Dead_Bug',null,'CORE'],
+['Reverse crunch','Tappetino','3 × 12–15','45 s','https://www.youtube.com/results?search_query=reverse+crunch+proper+form+tutorial','Reverse_Crunch',null,'CORE']]]
 ];
 function photos(e){const id=e[5],single=e[6]==='single';if(single){const u=IMG+id+'/1.jpg';return `<div class="artpair single"><figure class="frame"><img src="${u}" alt="${e[0]}" loading="lazy" decoding="async"><figcaption>POSIZIONE</figcaption></figure></div>`}const u0=IMG+id+'/0.jpg',u1=IMG+id+'/1.jpg';return `<div class="artpair"><figure class="frame"><img src="${u0}" alt="${e[0]} posizione iniziale" loading="lazy" decoding="async"><figcaption>INIZIO</figcaption></figure><figure class="frame"><img src="${u1}" alt="${e[0]} posizione finale" loading="lazy" decoding="async"><figcaption>FINE</figcaption></figure></div>`}
-function render(){let h='';W.forEach(w=>{h+=`<section class="workout ${w[2]}" id="w-${w[0]}"><div class="head"><div><small>ALLENAMENTO ${w[0]}</small><h2>${w[1]}</h2></div><button data-reset="${w[0]}">Azzera</button></div><div class="list">`;w[3].forEach((e,i)=>{const k=w[0]+'-'+(i+1);h+=`<article class="exercise" data-workout="${w[0]}">${photos(e)}<div class="body"><div class="top"><span class="num">${i+1}</span><div><h3>${e[0]}</h3><div class="meta">🧰 ${e[1]}<br>🔁 ${e[2]} · ⏱ ${e[3]}</div></div><label class="done"><input type="checkbox" data-key="${k}-done">✓</label></div><div class="track"><label>Peso<input inputmode="decimal" placeholder="kg" data-key="${k}-peso"></label><label>Rip. fatte<input inputmode="numeric" placeholder="es. 12" data-key="${k}-reps"></label></div><a class="video" href="${e[4]}" target="_blank" rel="noopener">▶ Guarda esecuzione corretta</a><details><summary>Note personali</summary><textarea rows="2" data-key="${k}-note" placeholder="Tecnica, carico, sensazioni…"></textarea></details></div></article>`});h+='</div></section>'});document.getElementById('app').innerHTML=h;bind()}
+function render(){let h='';W.forEach(w=>{h+=`<section class="workout ${w[2]}" id="w-${w[0]}"><div class="head"><div><small>ALLENAMENTO ${w[0]}</small><h2>${w[1]}</h2></div><button data-reset="${w[0]}">Azzera</button></div><div class="list">`;let last='';w[3].forEach((e,i)=>{if(e[7]!==last){last=e[7];h+=`<div class="group-label">${last}</div>`}const k=w[0]+'-'+(i+1);h+=`<article class="exercise" data-workout="${w[0]}">${photos(e)}<div class="body"><div class="top"><span class="num">${i+1}</span><div><h3>${e[0]}</h3><div class="meta">🧰 ${e[1]}<br>🔁 ${e[2]} · ⏱ ${e[3]}</div></div><label class="done"><input type="checkbox" data-key="${k}-done">✓</label></div><div class="track"><label>Peso<input inputmode="decimal" placeholder="kg" data-key="${k}-peso"></label><label>Rip. fatte<input inputmode="numeric" placeholder="es. 12" data-key="${k}-reps"></label></div><a class="video" href="${e[4]}" target="_blank" rel="noopener">▶ Guarda esecuzione corretta</a><details><summary>Note personali</summary><textarea rows="2" data-key="${k}-note" placeholder="Tecnica, carico, sensazioni…"></textarea></details></div></article>`});h+='</div></section>'});document.getElementById('app').innerHTML=h;bind()}
 function bind(){const els=[...document.querySelectorAll('[data-key]')];els.forEach(el=>{const k='pale-'+el.dataset.key,v=localStorage.getItem(k);if(v!==null)el.type==='checkbox'?el.checked=v==='1':el.value=v;el.addEventListener(el.type==='checkbox'?'change':'input',()=>{localStorage.setItem(k,el.type==='checkbox'?(el.checked?'1':'0'):el.value);progress()})});document.querySelectorAll('[data-reset]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-workout="'+b.dataset.reset+'"] [data-key]').forEach(el=>{localStorage.removeItem('pale-'+el.dataset.key);el.type==='checkbox'?el.checked=false:el.value=''});progress()});progress()}
 function progress(){const b=[...document.querySelectorAll('input[type=checkbox][data-key]')],d=b.filter(x=>x.checked).length,p=b.length?Math.round(d*100/b.length):0;document.getElementById('fill').style.width=p+'%';document.getElementById('prog').textContent=p+'% completato · '+d+'/'+b.length+' esercizi'}
 render();
