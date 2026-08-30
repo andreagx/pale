@@ -36,5 +36,28 @@
   const sun=document.querySelectorAll('.schedule>div')[6]?.querySelector('span');
   if(sun) sun.textContent='Braccia + Avambracci + Core · 75–90 min';
 
+  // Organizzazione per sale: macchine/cavi e pesi prima; TRX e tappetino alla fine insieme.
+  document.querySelectorAll('.workout').forEach(section=>{
+    const workoutList=section.querySelector('.list');
+    if(!workoutList) return;
+    const labels=[...workoutList.querySelectorAll('.group-label')];
+    const trxLabel=labels.find(x=>x.textContent.trim()==='TRX / SOSPENSIONE');
+    const coreLabel=labels.find(x=>x.textContent.trim()==='CORE');
+    if(!trxLabel || !coreLabel) return;
+
+    const block=[trxLabel];
+    let n=trxLabel.nextElementSibling;
+    while(n && !n.classList.contains('group-label')){
+      const next=n.nextElementSibling;
+      block.push(n);
+      n=next;
+    }
+    block.forEach(el=>workoutList.insertBefore(el,coreLabel));
+    [...workoutList.querySelectorAll('article.exercise .num')].forEach((num,i)=>num.textContent=i+1);
+  });
+
+  const intro=document.querySelector('.intro p');
+  if(intro) intro.textContent='Per ogni sessione: prima macchine e cavi, poi pesi liberi e polsi/avambracci quando previsti; TRX e tappetino/core restano per ultimi perché sono nella stessa sala. Squat, Romanian deadlift e calf raise sono inclusi; restano esclusi step-up/salite su gradino con carico e pressa.';
+
   progress();
 })();
