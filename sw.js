@@ -1,4 +1,4 @@
-const CACHE='pale-v12';
+const CACHE='pale-v13';
 const ASSETS=['./','./index.html','./app.js','./adjustments.js','./duration-fix.js','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS))));
 self.addEventListener('activate',e=>e.waitUntil(Promise.all([self.clients.claim(),caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))])));
