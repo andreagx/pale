@@ -1,4 +1,4 @@
-const CACHE='pale-v14';
+const CACHE='pale-v15';
 const ASSETS=['./','./index.html','./app.js','./adjustments.js','./duration-fix.js','./reset-all.js','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil((async()=>{
@@ -11,7 +11,7 @@ async function withReset(resp){
   if(!resp) return resp;
   let html=await resp.text();
   html=html.replace(/<script[^>]+reset-all\.js[^>]*><\/script>/g,'');
-  html=html.replace('</body>','<script src="./reset-all.js?v=14"></script></body>');
+  html=html.replace('</body>','<script src="./reset-all.js?v=15"></script></body>');
   return new Response(html,{status:resp.status,statusText:resp.statusText,headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-cache, no-store, must-revalidate'}});
 }
 self.addEventListener('fetch',e=>{
