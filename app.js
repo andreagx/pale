@@ -9,7 +9,7 @@ const REPDB_MAP={
 'Pullover al cavo a braccia tese':['straight-arm-pulldown','pair'],'Pallof press':['cable-pallof-press','pair'],'Distensioni inclinate manubri':['incline-db-press','pair'],
 'Rematore manubrio su panca':['one-arm-dumbbell-row','pair'],'Croci su panca inclinata':['incline-dumbbell-fly','pair'],'Glute bridge':['glute-bridge','pair'],'Bird dog':['bird-dog','pair'],
 'Concentration curl':['concentration-curl','pair'],'Hammer curl':['hammer-curl','pair'],'Kickback tricipiti con manubrio':['tricep-kickback','pair'],'Wrist curl seduto':['wrist-curl','pair'],
-'Reverse wrist curl seduto':['db-reverse-wrist-curl','pair'],'TRX triceps extension':['trx-tricep-extension','pair'],'Reverse crunch':['reverse-crunch','pair'],'Heel taps alternati':['heel-taps','pair']
+'Reverse wrist curl seduto':['db-reverse-wrist-curl','pair'],'TRX triceps extension':['trx-tricep-extension','pair'],'Reverse crunch':['reverse-crunches','pair'],'Heel taps alternati':['heel-taps','pair']
 };
 function photos(e){
   const m=REPDB_MAP[e[0]];
@@ -30,3 +30,5 @@ document.querySelectorAll('.artpair img').forEach(img=>img.addEventListener('err
   const pair=img.closest('.artpair');if(!pair)return;
   const fallback=document.createElement('div');fallback.className='artplaceholder';fallback.textContent='Immagine non disponibile · leggi la tecnica qui sotto';pair.replaceWith(fallback);
 }));
+// Immagini esterne: se un singolo asset non esiste, non mostrare riquadri placeholder giganti.
+document.querySelectorAll('.artpair img').forEach(img=>img.addEventListener('error',()=>{const fig=img.closest('.frame');const pair=img.closest('.artpair');if(fig)fig.remove();if(pair&&!pair.querySelector('img'))pair.remove();}));
