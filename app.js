@@ -1,8 +1,22 @@
-const IMG='https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/';
+const REPDB='https://exercise-dataset.com/images/flat/';
+const REPDB_MAP={
+'Croci ai cavi':['cable-crossover','pair'],'Pushdown tricipiti con corda':['tricep-pushdown','pair'],'Cable crunch':['cable-crunch','pair'],
+'Distensioni manubri su panca piana':['db-bench-press','pair'],'French press con due manubri':['dumbbell-skull-crusher','pair'],'TRX chest press':['trx-chest-press','pair'],'Plank':['plank','main'],
+'Lat machine presa larga':['lat-pulldown','pair'],'Seated row al pulley':['seated-cable-row','pair'],'Curl bilaterale al cavo':['cable-curl','pair'],'Goblet squat':['goblet-squat','pair'],
+'Romanian deadlift con manubri':['dumbbell-romanian-deadlift','pair'],'Calf raise in piedi con manubri':['standing-dumbbell-calf-raise','pair'],'TRX row':['trx-row','pair'],'Dead bug':['dead-bug','pair'],
+'Shoulder press guidata':['machine-shoulder-press','pair'],'Overhead triceps extension con corda':['overhead-tricep-extension','pair'],'Curl manubri su panca inclinata':['incline-db-curl','pair'],
+'Alzate laterali':['lateral-raise','pair'],'Alzate posteriori con petto appoggiato':['rear-delt-fly','pair'],'Russian twist':['russian-twist','pair'],'Side plank':['side-plank','main'],
+'Pullover al cavo a braccia tese':['straight-arm-pulldown','pair'],'Pallof press':['cable-pallof-press','pair'],'Distensioni inclinate manubri':['incline-db-press','pair'],
+'Rematore manubrio su panca':['one-arm-dumbbell-row','pair'],'Croci su panca inclinata':['incline-dumbbell-fly','pair'],'Glute bridge':['glute-bridge','pair'],'Bird dog':['bird-dog','pair'],
+'Concentration curl':['concentration-curl','pair'],'Hammer curl':['hammer-curl','pair'],'Kickback tricipiti con manubrio':['tricep-kickback','pair'],'Wrist curl seduto':['wrist-curl','pair'],
+'Reverse wrist curl seduto':['db-reverse-wrist-curl','pair'],'TRX triceps extension':['trx-tricep-extension','pair'],'Reverse crunch':['reverse-crunch','pair'],'Heel taps alternati':['heel-taps','pair']
+};
 function photos(e){
-  if(!e[5]) return '<div class="artplaceholder"><div>TECNICA</div><small>'+e[9]+'</small></div>';
-  const frames=e[6]==='single'?[1]:[0,1];
-  return '<div class="artpair '+(frames.length===1?'single':'')+'">'+frames.map((n,i)=>'<figure class="frame"><img src="'+IMG+e[5]+'/'+n+'.jpg" alt="'+e[0]+' · '+(frames.length===1?'posizione':i===0?'inizio':'fine')+'" loading="lazy" decoding="async"><figcaption>'+(frames.length===1?'POSIZIONE':i===0?'INIZIO':'FINE')+'</figcaption></figure>').join('')+'</div>';
+  const m=REPDB_MAP[e[0]];
+  if(!m) return '';
+  const [id,mode]=m;
+  const files=mode==='main'?[[id+'-main.webp','POSIZIONE']]:[[id+'-start.webp','INIZIO'],[id+'-peak.webp','FINE']];
+  return '<div class="artpair '+(mode==='main'?'single':'')+'">'+files.map(([file,label])=>'<figure class="frame"><img src="'+REPDB+file+'" alt="'+e[0]+' · '+label.toLowerCase()+'" loading="lazy" decoding="async"><figcaption>'+label+'</figcaption></figure>').join('')+'</div>';
 }
 function sessionNote(w){
   const sets=w[3].reduce((sum,e)=>sum+parseInt(e[2]),0);
