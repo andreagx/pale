@@ -1,4 +1,4 @@
-const CACHE='pale-v16';
+const CACHE='pale-v17';
 const ASSETS=['./','./index.html','./program.js','./app.js','./reset-all.js','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{
