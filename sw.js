@@ -1,35 +1,23 @@
-const CACHE='pale-v15';
-const ASSETS=['./','./index.html','./app.js','./adjustments.js','./duration-fix.js','./reset-all.js','./manifest.webmanifest','./icon.svg'];
-self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
-self.addEventListener('activate',e=>e.waitUntil((async()=>{
-  await caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))));
+const CACHE='pale-v16';
+const ASSETS=['./','./index.html','./program.js','./app.js','./reset-all.js','./manifest.webmanifest','./icon.svg'];
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',event=>event.waitUntil((async()=>{
+  const keys=await caches.keys();
+  await Promise.all(keys.filter(key=>key.startsWith('pale-')&&key!==CACHE).map(key=>caches.delete(key)));
   await self.clients.claim();
-  const clients=await self.clients.matchAll({type:'window',includeUncontrolled:true});
-  await Promise.all(clients.map(c=>c.navigate(c.url).catch(()=>{})));
+  const clients=await self.clients.matchAll({type:'window'});
+  await Promise.all(clients.map(client=>client.navigate(client.url).catch(()=>{})));
 })()));
-async function withReset(resp){
-  if(!resp) return resp;
-  let html=await resp.text();
-  html=html.replace(/<script[^>]+reset-all\.js[^>]*><\/script>/g,'');
-  html=html.replace('</body>','<script src="./reset-all.js?v=15"></script></body>');
-  return new Response(html,{status:resp.status,statusText:resp.statusText,headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-cache, no-store, must-revalidate'}});
-}
-self.addEventListener('fetch',e=>{
-  if(e.request.method!=='GET') return;
-  const u=new URL(e.request.url);
-  if(e.request.mode==='navigate'||u.pathname.endsWith('/index.html')){
-    e.respondWith((async()=>{
-      try{
-        const net=await fetch(e.request,{cache:'no-store'});
-        if(net.ok){const raw=net.clone();caches.open(CACHE).then(c=>c.put('./index.html',raw));return withReset(net)}
-      }catch(_){ }
-      return withReset(await caches.match('./index.html'));
-    })());
-    return;
+self.addEventListener('fetch',event=>{
+  if(event.request.method!=='GET')return;
+  const url=new URL(event.request.url);
+  if(url.origin!==self.location.origin)return;
+  if(event.request.mode==='navigate'){
+    event.respondWith((async()=>{
+      const cache=await caches.open(CACHE);
+      try{const response=await fetch(event.request,{cache:'no-store'});if(response.ok){await cache.put('./index.html',response.clone());return response;}}catch(_){ }
+      return await cache.match('./index.html')||Response.error();
+    })());return;
   }
-  if(u.pathname.endsWith('/reset-all.js')){
-    e.respondWith(fetch(e.request,{cache:'no-store'}).catch(()=>caches.match('./reset-all.js')));
-    return;
-  }
-  e.respondWith(caches.match(e.request).then(hit=>hit||fetch(e.request).then(resp=>{if(resp&&(resp.ok||resp.type==='opaque')){const copy=resp.clone();caches.open(CACHE).then(c=>c.put(e.request,copy))}return resp}).catch(()=>Response.error())));
+  event.respondWith((async()=>{const cache=await caches.open(CACHE);return await cache.match(event.request)||fetch(event.request);})());
 });
