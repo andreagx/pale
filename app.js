@@ -1,15 +1,15 @@
 const REPDB='https://exercise-dataset.com/images/flat/';
 const REPDB_MAP={
-'Croci ai cavi':['cable-fly','pair'],'Pushdown tricipiti con corda':['cable-tricep-pushdown','pair'],'Cable crunch':['cable-crunch','pair'],
-'Distensioni manubri su panca piana':['db-bench-press','pair'],'French press con due manubri':['dumbbell-skull-crusher','pair'],'TRX chest press':['trx-chest-press','pair'],'Plank':['plank','main'],
+'Croci ai cavi':['cable-fly','pair'],'Pushdown tricipiti con corda':['tricep-pushdown','pair'],'Cable crunch':['cable-crunch','pair'],
+'Distensioni manubri su panca piana':['db-bench-press','pair'],'French press con due manubri':['db-skull-crusher','pair'],'TRX chest press':['trx-chest-press','pair'],'Plank':['plank','main'],
 'Lat machine presa larga':['lat-pulldown','pair'],'Seated row al pulley':['seated-cable-row','pair'],'Curl bilaterale al cavo':['cable-curl','pair'],'Goblet squat':['goblet-squat','pair'],
 'Romanian deadlift con manubri':['dumbbell-romanian-deadlift','pair'],'Calf raise in piedi con manubri':['dumbbell-calf-raise','pair'],'TRX row':['trx-row','pair'],'Dead bug':['dead-bug','pair'],
 'Shoulder press guidata':['machine-shoulder-press','pair'],'Overhead triceps extension con corda':['overhead-tricep-extension','pair'],'Curl manubri su panca inclinata':['incline-db-curl','pair'],
-'Alzate laterali':['dumbbell-lateral-raise','pair'],'Alzate posteriori con petto appoggiato':['dumbbell-reverse-fly','pair'],'Russian twist':['russian-twist','pair'],'Side plank':['side-plank','main'],
+'Alzate laterali':['lateral-raise','pair'],'Alzate posteriori con petto appoggiato':['dumbbell-reverse-fly','pair'],'Russian twist':['russian-twist','pair'],'Side plank':['side-plank','main'],
 'Pullover al cavo a braccia tese':['straight-arm-pulldown','pair'],'Pallof press':['cable-pallof-press','pair'],'Distensioni inclinate manubri':['incline-db-press','pair'],
 'Rematore manubrio su panca':['single-arm-db-row','pair'],'Croci su panca inclinata':['incline-dumbbell-fly','pair'],'Glute bridge':['glute-bridge','pair'],'Bird dog':['bird-dog','pair'],
 'Concentration curl':['concentration-curl','pair'],'Hammer curl':['hammer-curl','pair'],'Kickback tricipiti con manubrio':['tricep-kickback','pair'],'Wrist curl seduto':['dumbbell-wrist-curl','pair'],
-'Reverse wrist curl seduto':['dumbbell-reverse-wrist-curl','pair'],'TRX triceps extension':['trx-tricep-extension','pair'],'Reverse crunch':['reverse-crunches','pair']
+'Reverse wrist curl seduto':['db-reverse-wrist-curl','pair'],'TRX triceps extension':['trx-tricep-extension','pair'],'Reverse crunch':['reverse-crunches','pair']
 };
 function photos(e){
   const m=REPDB_MAP[e[0]];
