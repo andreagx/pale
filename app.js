@@ -9,7 +9,7 @@ const REPDB_MAP={
 'Pullover al cavo a braccia tese':['straight-arm-pulldown','pair'],'Pallof press':['cable-pallof-press','pair'],'Distensioni inclinate manubri':['incline-db-press','pair'],
 'Rematore manubrio su panca':['single-arm-db-row','pair'],'Croci su panca inclinata':['incline-dumbbell-fly','pair'],'Glute bridge':['glute-bridge','pair'],'Bird dog':['bird-dog','pair'],
 'Concentration curl':['concentration-curl','pair'],'Hammer curl':['hammer-curl','pair'],'Kickback tricipiti con manubrio':['tricep-kickback','pair'],'Wrist curl seduto':['dumbbell-wrist-curl','pair'],
-'Reverse wrist curl seduto':['db-reverse-wrist-curl','pair'],'TRX triceps extension':['trx-tricep-extension','pair'],'Reverse crunch':['reverse-crunches','pair']
+'Reverse wrist curl seduto':['db-reverse-wrist-curl','pair'],'TRX triceps extension':['trx-tricep-extension','pair'],'Reverse crunch':['reverse-crunches','pair'],'Heel taps alternati':['cross-body-crunch','pair']
 };
 function photos(e){
   const m=REPDB_MAP[e[0]];
