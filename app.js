@@ -15,7 +15,8 @@ function photos(e){
   const m=REPDB_MAP[e[0]];
   if(!m) return '';
   const [id,mode]=m;
-  if(mode==='external') return '<div class="artpair single"><figure class="frame"><img src="'+id+'" alt="'+e[0]+' · esecuzione" loading="lazy" decoding="async"><figcaption>ESECUZIONE</figcaption></figure></div>';\n  const files=mode==='main'?[[id+'-main.webp','POSIZIONE']]:[[id+'-start.webp','INIZIO'],[id+'-peak.webp','FINE']];
+  if(mode==='external') return '<div class="artpair single"><figure class="frame"><img src="'+id+'" alt="'+e[0]+' · esecuzione" loading="lazy" decoding="async"><figcaption>ESECUZIONE</figcaption></figure></div>';
+  const files=mode==='main'?[[id+'-main.webp','POSIZIONE']]:[[id+'-start.webp','INIZIO'],[id+'-peak.webp','FINE']];
   return '<div class="artpair '+(mode==='main'?'single':'')+'">'+files.map(([file,label])=>'<figure class="frame"><img src="'+REPDB+file+'" alt="'+e[0]+' · '+label.toLowerCase()+'" loading="lazy" decoding="async"><figcaption>'+label+'</figcaption></figure>').join('')+'</div>';
 }
 function sessionNote(w){
