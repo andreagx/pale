@@ -216,12 +216,12 @@ const W=[
         "Cavo + corda",
         "3 × 10–12",
         "60 s",
-        "https://www.catalystathletics.com/exercise/817/Cable-Overhead-Tricep-Extension/",
+        "https://www.youtube.com/watch?v=U_qMtEvHuQM",
         null,
         "text",
         "ATTREZZI / CAVI",
         "C-3",
-        "Cavo alle spalle, corda dietro la testa. Mantieni le braccia alte e stabili; estendi gli avambracci senza inarcare il tronco."
+        "Corda al cavo basso, schiena alla macchina e leggero busto inclinato avanti. Gomiti accanto alle orecchie e braccia ferme; estendi solo i gomiti fino a distendere le braccia, poi torna dietro la testa in controllo."
       ],
       [
         "Curl manubri su panca inclinata",
