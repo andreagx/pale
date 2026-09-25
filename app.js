@@ -4,7 +4,7 @@ const REPDB_MAP={
 'Distensioni manubri su panca piana':['db-bench-press','pair'],'French press con due manubri':['db-skull-crusher','pair'],'TRX chest press':['trx-chest-press','pair'],'Plank':['plank','main'],
 'Lat machine presa larga':['lat-pulldown','pair'],'Seated row al pulley':['seated-cable-row','pair'],'Curl bilaterale al cavo':['cable-curl','pair'],'Goblet squat':['goblet-squat','pair'],
 'Romanian deadlift con manubri':['dumbbell-romanian-deadlift','pair'],'Calf raise in piedi con manubri':['dumbbell-calf-raise','pair'],'TRX row':['trx-row','pair'],'Dead bug':['dead-bug','pair'],
-'Shoulder press guidata':['machine-shoulder-press','pair'],'Overhead triceps extension con corda':['https://planworkouts.com/videos/0194-2IxROQ1.gif','external'],'Curl manubri su panca inclinata':['incline-db-curl','pair'],
+'Shoulder press guidata':['machine-shoulder-press','pair'],'Overhead triceps extension con corda':[['https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2025/11/overhead-tricep-extension-start.png?resize=700%2C700&ssl=1','https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2025/11/overhead-tricep-extension-end-1024x1024.png?resize=700%2C700&ssl=1'],'externalpair'],'Curl manubri su panca inclinata':['incline-db-curl','pair'],
 'Alzate laterali':['lateral-raise','pair'],'Alzate posteriori con petto appoggiato':['dumbbell-reverse-fly','pair'],'Russian twist':['russian-twist','pair'],'Side plank':['side-plank','main'],
 'Pullover al cavo a braccia tese':['straight-arm-pulldown','pair'],'Pallof press':['cable-pallof-press','pair'],'Distensioni inclinate manubri':['incline-db-press','pair'],
 'Rematore manubrio su panca':['single-arm-db-row','pair'],'Croci su panca inclinata':['incline-dumbbell-fly','pair'],'Glute bridge':['glute-bridge','pair'],'Bird dog':['bird-dog','pair'],
@@ -15,7 +15,7 @@ function photos(e){
   const m=REPDB_MAP[e[0]];
   if(!m) return '';
   const [id,mode]=m;
-  if(mode==='external') return '<div class="artpair single"><figure class="frame"><img src="'+id+'" alt="'+e[0]+' · esecuzione" loading="lazy" decoding="async"><figcaption>ESECUZIONE</figcaption></figure></div>';
+  if(mode==='externalpair') return '<div class="artpair"><figure class="frame"><img src="'+id[0]+'" alt="'+e[0]+' · inizio" loading="lazy" decoding="async"><figcaption>INIZIO</figcaption></figure><figure class="frame"><img src="'+id[1]+'" alt="'+e[0]+' · fine" loading="lazy" decoding="async"><figcaption>FINE</figcaption></figure></div>';
   const files=mode==='main'?[[id+'-main.webp','POSIZIONE']]:[[id+'-start.webp','INIZIO'],[id+'-peak.webp','FINE']];
   return '<div class="artpair '+(mode==='main'?'single':'')+'">'+files.map(([file,label])=>'<figure class="frame"><img src="'+REPDB+file+'" alt="'+e[0]+' · '+label.toLowerCase()+'" loading="lazy" decoding="async"><figcaption>'+label+'</figcaption></figure>').join('')+'</div>';
 }
