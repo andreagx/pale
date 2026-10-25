@@ -363,16 +363,16 @@ const W=[
         "Spingi attraverso i piedi e solleva il bacino; termina senza inarcare la schiena."
       ],
       [
-        "Bird dog",
+        "Plank con tocco delle spalle",
         "Tappetino",
         "2 × 8 / lato",
         "45 s",
-        "https://www.youtube.com/results?search_query=bird%20dog%20proper%20form%20E3%20Rehab",
-        null,
-        "text",
+        "https://www.youtube.com/results?search_query=plank+shoulder+taps+proper+form+tutorial",
+        "high-plank",
+        "single",
         "CORE",
-        "D-bird-dog",
-        "Allunga braccio e gamba opposti; mantieni bacino e schiena stabili."
+        "D-shoulder-taps",
+        "Parti in plank alto, mani sotto le spalle e piedi leggermente divaricati. Tocca lentamente la spalla opposta con una mano, riappoggiala e alterna lato. Mantieni bacino fermo e addome attivo, senza inarcare la schiena."
       ]
     ]
   ],

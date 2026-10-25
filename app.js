@@ -7,7 +7,7 @@ const REPDB_MAP={
 'Shoulder press guidata':['machine-shoulder-press','pair'],'Overhead triceps extension con corda':['cable-overhead-tricep-extension','pair'],'Curl manubri su panca inclinata':['incline-db-curl','pair'],
 'Alzate laterali':['lateral-raise','pair'],'Alzate posteriori con petto appoggiato':['dumbbell-reverse-fly','pair'],'Russian twist':['russian-twist','pair'],'Side plank':['side-plank','main'],
 'Pullover al cavo a braccia tese':['straight-arm-pulldown','pair'],'Pallof press':['cable-pallof-press','pair'],'Distensioni inclinate manubri':['incline-db-press','pair'],
-'Rematore manubrio su panca':['single-arm-db-row','pair'],'Croci su panca inclinata':['incline-dumbbell-fly','pair'],'Glute bridge':['glute-bridge','pair'],'Bird dog':['bird-dog','pair'],
+'Rematore manubrio su panca':['single-arm-db-row','pair'],'Croci su panca inclinata':['incline-dumbbell-fly','pair'],'Glute bridge':['glute-bridge','pair'],'Plank con tocco delle spalle':['high-plank','setup'],
 'Concentration curl':['concentration-curl','pair'],'Hammer curl':['hammer-curl','pair'],'Kickback tricipiti con manubrio':['tricep-kickback','pair'],'Wrist curl seduto':['dumbbell-wrist-curl','pair'],
 'Reverse wrist curl seduto':['db-reverse-wrist-curl','pair'],'TRX triceps extension':['trx-tricep-extension','pair'],'Reverse crunch':['reverse-crunches','pair'],'Heel taps alternati':['cross-body-crunch','pair']
 };
@@ -16,8 +16,8 @@ function photos(e){
   if(!m) return '';
   const [id,mode]=m;
   if(mode==='externalpair') return '<div class="artpair"><figure class="frame"><img src="'+id[0]+'" alt="'+e[0]+' · inizio" loading="lazy" decoding="async"><figcaption>INIZIO</figcaption></figure><figure class="frame"><img src="'+id[1]+'" alt="'+e[0]+' · fine" loading="lazy" decoding="async"><figcaption>FINE</figcaption></figure></div>';
-  const files=mode==='main'?[[id+'-main.webp','POSIZIONE']]:[[id+'-start.webp','INIZIO'],[id+'-peak.webp','FINE']];
-  return '<div class="artpair '+(mode==='main'?'single':'')+'">'+files.map(([file,label])=>'<figure class="frame"><img src="'+REPDB+file+'" alt="'+e[0]+' · '+label.toLowerCase()+'" loading="lazy" decoding="async"><figcaption>'+label+'</figcaption></figure>').join('')+'</div>';
+  const files=mode==='setup'?[[id+'-main.webp','POSIZIONE INIZIALE']]:mode==='main'?[[id+'-main.webp','POSIZIONE']]:[[id+'-start.webp','INIZIO'],[id+'-peak.webp','FINE']];
+  return '<div class="artpair '+(mode==='main'||mode==='setup'?'single':'')+'">'+files.map(([file,label])=>'<figure class="frame"><img src="'+REPDB+file+'" alt="'+e[0]+' · '+label.toLowerCase()+'" loading="lazy" decoding="async"><figcaption>'+label+'</figcaption></figure>').join('')+'</div>';
 }
 function sessionNote(w){
   const sets=w[3].reduce((sum,e)=>sum+parseInt(e[2]),0);
