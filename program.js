@@ -303,16 +303,16 @@ const W=[
         "Gomiti morbidi e quasi fermi; porta la barra verso le cosce senza oscillare con il busto."
       ],
       [
-        "Pallof press",
-        "Cavo all’altezza del petto",
-        "3 × 10 / lato",
-        "45 s",
-        "https://www.youtube.com/results?search_query=standing%20pallof%20press%20cable%20proper%20form%20tutorial",
+        "Downward Trunk Rotation (Technogym Kinesis)",
+        "Kinesis · cavo superiore",
+        "3 × 12 / lato",
+        "45–60 s",
+        "https://www.youtube.com/results?search_query=Technogym+Kinesis+downward+trunk+rotation+exercise",
         null,
         "text",
         "ATTREZZI / CAVI",
         "D-pallof",
-        "Stai di lato al cavo; allunga le braccia resistendo alla rotazione del tronco."
+        "Dalla posizione eretta, afferra il cavo superiore e ruota il tronco diagonalmente dall’alto verso il basso. Movimento lento e controllato, senza strappi; evita torsioni forzate delle ginocchia."
       ],
       [
         "Distensioni inclinate manubri",
